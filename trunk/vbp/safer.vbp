@@ -1,0 +1,57 @@
+Type=Exe
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\system32\stdole2.tlb#OLE Automation
+Form=..\frm\saferun.frm
+Module=hookrun; ..\bas\hookrun.bas
+Module=modLanguage; ..\bas\mLanguage.bas
+ResFile32="..\res\noadmin.res"
+IconForm="saferun"
+Startup="saferun"
+HelpFile=""
+Title="safer"
+ExeName32="saferun.exe"
+Path32="..\..\bin"
+Command32=""
+Name="safer"
+HelpContextID="0"
+Description="IHTool安全打开组件。"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=1
+RevisionVer=0
+AutoIncrementVer=0
+ServerSupportFiles=0
+VersionCompanyName="oDet Studio 多重工作室 http://www.odets.net"
+VersionFileDescription="IHTool Run Safely Module"
+VersionLegalCopyright="IHTool Copyright (C) 2011 oDet Studio"
+VersionLegalTrademarks="IHTool"
+VersionProductName="IHTool Run Safely Module"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=0
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=0
+OverflowCheck=0
+FlPointCheck=0
+FDIVCheck=0
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1
+
+[AmicForVB]
+XPSTYLE=0
+DLLOUT=0
+EXPORT=
+ASMCODE=0
+ENTRY=
+ICONFILE=
+BOOLICON=0
+SUBSYSTEM=0
+BOOLLOADER=0
+BOOLGC=0
