@@ -16,6 +16,14 @@ Begin VB.Form frmAbout
    ScaleWidth      =   5380.766
    ShowInTaskbar   =   0   'False
    StartUpPosition =   1  '所有者中心
+   Begin VB.CommandButton donate 
+      Caption         =   "Donate"
+      Height          =   375
+      Left            =   240
+      TabIndex        =   14
+      Top             =   1440
+      Width           =   855
+   End
    Begin VB.PictureBox Picture1 
       AutoSize        =   -1  'True
       Height          =   540
