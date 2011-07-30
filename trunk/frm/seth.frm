@@ -177,8 +177,8 @@ Private Sub Form_Load()
     Call ChangeLanguage(Lan, seth)
     
     Dim x
-    x = Split(Ltip1.Caption, "/", -1, vbTextCompare)
-    Ltip1.Caption = x(0) + newkey.FilePath1.Text + x(1)
+    x = Split(LTip1.Caption, "/", -1, vbTextCompare)
+    LTip1.Caption = x(0) + newkey.FilePath1.Text + x(1)
     If newkey.Tag = "" Then
         Option1.Value = True
     Else

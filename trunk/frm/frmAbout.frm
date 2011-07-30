@@ -180,6 +180,10 @@ Private Sub cmdOK_Click()
     Unload Me
 End Sub
 
+Private Sub donate_Click()
+    ShellExecute Me.hwnd, "open", "http://www.odets.net/donate/", "", "", 5
+End Sub
+
 Private Sub Form_Load()
     cache = Lbuild.Caption
     Call ChangeLanguage(Lan, frmAbout)

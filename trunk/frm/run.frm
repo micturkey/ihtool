@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "Comdlg32.ocx"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Begin VB.Form run 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "突破映像劫持运行程序"
@@ -37,7 +37,7 @@ Begin VB.Form run
       Top             =   240
       Width           =   855
    End
-   Begin VB.TextBox Text1 
+   Begin VB.TextBox filepath 
       Height          =   270
       Left            =   1440
       TabIndex        =   1
@@ -61,20 +61,26 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 Private Sub Command1_Click()
-    CommonDialog1.Filter = "可执行文件(*.exe;)|*.exe"
+    On Error GoTo err
+    CommonDialog1.Filter = GetString(Lan, "openexe1")
     
-    CommonDialog1.DialogTitle = "打开可执行文件(*.exe)"
+    CommonDialog1.DialogTitle = GetString(Lan, "openexe2")
     CommonDialog1.ShowOpen
-    Text1.Text = CommonDialog1.FileName
+    filepath.Text = CommonDialog1.FileName
+err: filepath.Text = ""
 End Sub
 
 Private Sub Command2_Click()
-    If Text1.Text = "" Then
+    If filepath.Text = "" Then
         On Error GoTo err
-        A = MsgBox("请先选择需要打开的文件", vbInformation, "突破映像劫持运行程序")
+        a = MsgBox(GetString(Lan, "selectrun"), vbInformation, GetString(Lan, "run"))
     Else
-        RunExecute (Text1.Text)
+        RunExecute (filepath.Text)
     End If
     Exit Sub
-err: Text1.Text = ""
+err: filepath.Text = ""
+End Sub
+
+Private Sub Form_Load()
+    Call ChangeLanguage(Lan, run)
 End Sub
