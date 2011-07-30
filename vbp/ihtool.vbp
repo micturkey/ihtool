@@ -9,8 +9,9 @@ Object={F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0; COMDLG32.OCX
 Form=..\frm\seth.frm
 Form=..\frm\newkey.frm
 Module=hookrun; ..\bas\hookrun.bas
-ResFile32="..\res\ihtool.res"
 Module=modLanguage; ..\bas\modLanguage.bas
+Form=..\frm\run.frm
+ResFile32="..\res\ihtool.res"
 IconForm="bin"
 Startup="ihtool"
 HelpFile=""
@@ -46,6 +47,7 @@ Unattended=0
 Retained=0
 ThreadPerObject=0
 MaxNumberOfThreads=1
+DebugStartupOption=0
 
 [MS Transaction Server]
 AutoRefresh=1
