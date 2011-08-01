@@ -152,12 +152,14 @@ Private Sub delete_Click()
                     On Error GoTo error
                     reg.regdelete ("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\ihtdel")
                     reg.regdelete ("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\ihtbin")
+                    reg.regdelete ("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\ihtpath")
                     reg.regdelete ("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\")
                     
                 Else
                     On Error GoTo error
                     reg.regdelete ("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\ihtdel")
                     reg.regdelete ("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\ihtbin")
+                    reg.regdelete ("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\ihtpath")
                     
                     
                 End If
@@ -343,10 +345,13 @@ Private Sub reback_Click()
     For I = List.ListItems.Count To 1 Step -1
         If List.ListItems(I).Checked = True Then
             Set reg = CreateObject("wscript.shell")
-            If List.ListItems(I).SubItems(2) = "指向IHTool" Then
+            If List.ListItems(I).SubItems(2) = Left(GetString(Lan, "pointto1"), Len(List.ListItems(I).SubItems(2))) Then
                 List.ListItems(I).SubItems(2) = App.Path + "\saferun.exe" + " /" + List.ListItems(I).SubItems(1)
-            ElseIf List.ListItems(I).SubItems(2) = "指向IHTool（管理员权限）" Then
+            ElseIf List.ListItems(I).SubItems(2) = Left(GetString(Lan, "pointto2"), Len(List.ListItems(I).SubItems(2))) Then
                 List.ListItems(I).SubItems(2) = App.Path + "\saferunadmin.exe" + " /" + List.ListItems(I).SubItems(1)
+            ElseIf List.ListItems(I).SubItems(2) = Left(GetString(Lan, "pointto3"), Len(List.ListItems(I).SubItems(2))) Or List.ListItems(I).SubItems(2) = Left(GetString(Lan, "pointto4"), Len(List.ListItems(I).SubItems(2))) Or List.ListItems(I).SubItems(2) = Left(GetString(Lan, "pointto5"), Len(List.ListItems(I).SubItems(2))) Or List.ListItems(I).SubItems(2) = Left(GetString(Lan, "pointto6"), Len(List.ListItems(I).SubItems(2))) Then
+                List.ListItems(I).SubItems(2) = reg.regread("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\ihtpath")
+                
             End If
             b = reg.regwrite("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\debugger", List.ListItems(I).SubItems(2), "REG_SZ")
             C = reg.regwrite("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\ihtool", "safe", "REG_SZ")

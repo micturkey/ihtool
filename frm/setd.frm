@@ -206,10 +206,10 @@ Private Sub OK_Click()
     If Option2.Value = True Then newkey.FilePath2.Text = "c:\error^1\error.err"
     If Option3.Value = True Then newkey.FilePath2.Text = "c:\error*1\error.err"
     If Option4.Value = True Then
-        If C.Value = True Then newkey.FilePath2.Text = App.Path + "\msgshow.exe" + " /16 " + Ttitle.Text + " " + Tcaption.Text
-        If E.Value = True Then newkey.FilePath2.Text = App.Path + "\msgshow.exe" + " /48 " + Ttitle.Text + " " + Tcaption.Text
-        If I.Value = True Then newkey.FilePath2.Text = App.Path + "\msgshow.exe" + " /64 " + Ttitle.Text + " " + Tcaption.Text
-        If Q.Value = True Then newkey.FilePath2.Text = App.Path + "\msgshow.exe" + " /32 " + Ttitle.Text + " " + Tcaption.Text
+        If C.Value = True Then newkey.FilePath2.Text = App.Path + "\msgshow.exe" + " /16 " + " *" + Ttitle.Text + " *" + Tcaption.Text + "*"
+        If E.Value = True Then newkey.FilePath2.Text = App.Path + "\msgshow.exe" + " /48 " + " *" + Ttitle.Text + " *" + Tcaption.Text + "*"
+        If I.Value = True Then newkey.FilePath2.Text = App.Path + "\msgshow.exe" + " /64 " + " *" + Ttitle.Text + " *" + Tcaption.Text + "*"
+        If Q.Value = True Then newkey.FilePath2.Text = App.Path + "\msgshow.exe" + " /32 " + " *" + Ttitle.Text + " *" + Tcaption.Text + "*"
     End If
     Unload Me
 End Sub
@@ -219,7 +219,6 @@ Private Sub Cancel_Click()
 End Sub
 
 Private Sub Form_Load()
-    
     x = newkey.FilePath2.Text
     If x = "error.err" Then Option1.Value = True
     If x = "c:\error^1\error.err" Then Option2.Value = True
@@ -229,8 +228,10 @@ Private Sub Form_Load()
         Y = Split(x, " ", -1, vbTextCompare)
         
         opt = Mid(Y(1), 2)
-        Ttitle.Text = Y(2)
-        Tcaption.Text = Y(3)
+        z = Split(newkey.FilePath2.Text, "*", -1, vbTextCompare)
+        Ttitle.Text = z(1)
+        
+        Tcaption.Text = z(2)
         Option4.Value = True
         Debug.Print x, Y(1), Y(2), Y(3)
         If opt = "16" Then C.Value = True

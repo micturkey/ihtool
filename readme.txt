@@ -30,7 +30,7 @@ Disigned by oDet Studio
 http://www.odets.net/
 ====================
 更新日志 What's new
-1.1.0版 bulid 103 2011年7月18日
+1.1.0版 bulid 103 2011年8月2日
 --------------------
 1、可将文件直接指向系统错误框
 2、可自动增加注册表中相关键值的权限
@@ -41,18 +41,17 @@ http://www.odets.net/
 5.2:选择文件窗口中如果点取消,文件依然会被选
 5.3:去除选择文件窗口中的com文件
 
-V1.1.0 bulid 103 7.18.2011
+V1.1.0 bulid 103 2nd July of 2011
 --------------------
 New features:
 1、Point files to system tips
 2、Get authorities in Registry automatically
-3、Run alone.
+3、Run alone
 4、Refactor codes and support multi languages(choose automatically)
 Fix bugs:
-5.Fix the following bugs.
-5.1:If choose all the items in the Recycle Bin, will unable to remove.
-5.2:When you are choosing files and then you cancel, the file will be still chosen.
-5.3:No com files.
+5、If choose all the items in the Recycle Bin, will unable to remove.
+6、When you are choosing files and then you cancel, the file will be still chosen.
+7、No com files.
 
 
 The following words are just Chinese.

@@ -34,7 +34,8 @@ Private Sub Form_Load()
         X = Command
         Y = Split(X, " ", -1, vbTextCompare)
         opt = Mid(Y(0), 2)
-        a = MsgBox(Y(2), CLng(opt), Y(1))
+        I = Split(X, "*", -1, vbTextCompare)
+        a = MsgBox(I(2), CLng(opt), I(1))
         End
     Else
         Me.Show
