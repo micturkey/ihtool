@@ -509,11 +509,16 @@ Private Sub del_Click()
                 If List.ListItems(I).SubItems(1) <> Left(GetString(Lan, "nofound"), Len(List.ListItems(I).SubItems(1))) Then
                     
                     Set reg = CreateObject("wscript.shell")
+                    z = reg.regread("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\debugger")
+                    
+                    
                     reg.regdelete ("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\debugger")
                     
                     If backup.Value = True Then
                         a = reg.regwrite("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\ihtdel", List.ListItems(I).SubItems(2), "REG_SZ")
                         a = reg.regwrite("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\ihtbin", Now, "REG_SZ")
+                        a = reg.regwrite("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\ihtpath", z, "REG_SZ")
+                        
                     Else
                         
                         reg.regdelete ("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" & List.ListItems(I).SubItems(1) & "\")
